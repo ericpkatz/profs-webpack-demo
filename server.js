@@ -19,7 +19,7 @@ conn.sync({ force: true })
 
 app.use(require('body-parser').urlencoded({ extended: false }));
 app.use('/vendor', express.static(path.join(__dirname, 'node_modules')));
-app.use('/src', express.static(path.join(__dirname, 'src')));
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 app.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, 'index.html')));
 

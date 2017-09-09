@@ -1,8 +1,10 @@
-function UserList(config){
-  var container = $(config.id);
+import $ from 'jquery';
+
+function UserList({ id, onDelete, users }){
+  var container = $(id);
   var template = `
     <ul>
-    ${ config.users.map(function(user){
+    ${ users.map(function(user){
       return `
         <li data-id='${user.id}'>${ user.name }</li>
         `;
@@ -12,8 +14,10 @@ function UserList(config){
   container.empty();
   var $html = $(template);
   $html.on('click', 'li', function(){
-    config.onDelete($(this).attr('data-id')*1);
+    onDelete($(this).attr('data-id')*1);
   });
   container.append($html);
 
 }
+
+export default UserList;

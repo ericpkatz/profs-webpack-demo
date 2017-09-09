@@ -1,15 +1,19 @@
-function UserForm(config){
-  var container = $(config.id);
+import $ from 'jquery';
+
+function UserForm({ id, onSave }){
+  var container = $(id);
   var template = `
     <div>
       <input type='text'>
-      <button>Save</button>
+      <button>Insert</button>
     </div>
     `;
   container.empty();
   var $html = $(template);
   $html.on('click', 'button', function(){
-    config.onSave({ name: $(this).prev().val()});
+    onSave({ name: $(this).prev().val()});
   });
   container.append($html);
 }
+
+export default UserForm;

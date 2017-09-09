@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import UserForm from './UserForm';
+import UserList from './UserList';
+
 var users;
 
 
@@ -40,4 +44,5 @@ $.get('/api/users')
     users = _users;
     renderUserList(users);
   });
+
 renderUserForm();
